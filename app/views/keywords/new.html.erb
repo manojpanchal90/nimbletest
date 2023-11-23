@@ -1,0 +1,11 @@
+<h1>Upload keyword</h1>
+
+<%= render "form", keyword: @keyword %>
+
+<%= link_to 'View Keywords', keywords_path %>
+
+<% if flash[:error].present? %>
+  <div class="alert alert-danger mt-3" role="alert">
+    <%= flash[:error] %>
+  </div>
+<% end %>
