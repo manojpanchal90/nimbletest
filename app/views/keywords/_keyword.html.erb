@@ -1,2 +1,27 @@
 <div id="<%= dom_id keyword %>">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title text-center">Keyword Info</h2>
+          </div>
+            <ul class="list-group mt-3">
+              <li class="list-group-item"><strong>Name:</strong> <%= @keyword.name %></li>
+              <li class="list-group-item"><strong>Total Adwords:</strong> <%= @keyword.total_adwords %></li>
+              <li class="list-group-item"><strong>total Links:</strong> <%= @keyword.total_links %></li>
+              <li class="list-group-item"><strong>Search Count:</strong> <%= @keyword.search_count %></li>
+            </ul>
+            </div>
+          <div class="card-footer">
+            <h4>Cached Page HTML</h4>
+            <div class="mt-3">
+              <!-- Include the WYSIWYG content here -->
+              <%=  @keyword.html_content %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
