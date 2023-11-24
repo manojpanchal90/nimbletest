@@ -1,9 +1,9 @@
 class KeywordsController < ApplicationController
   before_action :set_keyword, only: %i[ show destroy ]
-
+  before_action :authenticate_user!
   # GET /keywords or /keywords.json
   def index
-    @keywords = Keyword.all
+    @keywords = Keyword.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /keywords/1 or /keywords/1.json
@@ -22,7 +22,7 @@ class KeywordsController < ApplicationController
       import_keywords(file)
       flash[:success] = 'Keywords imported successfully.'
       redirect_to keywords_path
-     rescue StandardError => e
+    rescue StandardError => e
       flash[:error] = "Error importing keywords: #{e.message}"
       render :new
     end
