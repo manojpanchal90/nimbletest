@@ -1,0 +1,3 @@
+REDIS_URL=redis://localhost:6379/0
+DATABASE_NAME=nimble_development
+CACHED_PERIOD=48
