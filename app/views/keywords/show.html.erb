@@ -2,9 +2,6 @@
 
 <%= render @keyword %>
 
-<div>
-  <%= link_to "Edit this keyword", edit_keyword_path(@keyword) %> |
-  <%= link_to "Back to keywords", keywords_path %>
-
+<div class="text-center mt-3">
   <%= button_to "Destroy this keyword", @keyword, method: :delete %>
 </div>

@@ -1,5 +1,5 @@
 class KeywordsController < ApplicationController
-  before_action :set_keyword, only: %i[ show destroy ]
+  before_action :set_keyword, only: %i[ show destroy scrap_html]
   before_action :authenticate_user!
   # GET /keywords or /keywords.json
   def index
@@ -36,6 +36,10 @@ class KeywordsController < ApplicationController
       format.html { redirect_to keywords_url, notice: "Keyword was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def scrap_html
+     render layout: false
   end
 
   private
