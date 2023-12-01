@@ -11,14 +11,8 @@
               <li class="list-group-item"><strong>Total Adwords:</strong> <%= @keyword.total_adwords %></li>
               <li class="list-group-item"><strong>total Links:</strong> <%= @keyword.total_links %></li>
               <li class="list-group-item"><strong>Search Count:</strong> <%= @keyword.search_count %></li>
+              <li class="list-group-item"><strong>Cached Page HTML:</strong> <%= link_to 'View Scraped HTML', scrap_html_keyword_url(@keyword), class: 'btn btn-link', target: '_blank' %></li>
             </ul>
-            </div>
-          <div class="card-footer">
-            <h4>Cached Page HTML</h4>
-            <div class="mt-3">
-              <!-- Include the WYSIWYG content here -->
-              <%=  @keyword.html_content %>
-            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 class CsvProcessor
-
-  MIN_RECORDS = 1
+  MIN_RECORDS = 5
   MAX_RECORDS = 100
   EXPECTED_HEADER = 'Name'
   VALID_CSV_EXTENSIONS = %w[.csv]
@@ -11,7 +10,6 @@ class CsvProcessor
   end
 
   def process_csv
-
     validate_csv_header
     validate_csv_records
 
@@ -37,9 +35,10 @@ class CsvProcessor
     raise 'Invalid file format. Please upload a CSV file.' unless VALID_CSV_EXTENSIONS.include?(extension)
   end
 
-  def process_row(keyword)
-    ProcessKeywordWorker.new.perform(keyword, Keyword::SearchSites[:google])
-    # You can add more processing logic if needed
+  def process_row(keyword_name)
+    #keyword = @keyword_service.find_or_create_keyword(keyword_name)
+    #if @keyword_service.needs_refresh?(keyword)
+      ProcessKeywordJob.perform_async(keyword_name, Keyword::SearchSites[:google])
+    #end
   end
-
 end
