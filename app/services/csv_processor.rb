@@ -1,5 +1,5 @@
 class CsvProcessor
-  MIN_RECORDS = 1
+  MIN_RECORDS = 5
   MAX_RECORDS = 100
   EXPECTED_HEADER = 'Name'
   VALID_CSV_EXTENSIONS = %w[.csv]

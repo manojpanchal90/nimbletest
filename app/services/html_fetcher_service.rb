@@ -56,7 +56,8 @@ class HtmlFetcherService
 
   def needs_refresh?(keyword)
     last_fetched_at = keyword.last_fetched_at
-    last_fetched_at.nil? || last_fetched_at < (Time.now - ENV['CACHED_PERIOD'].hours)
+    cached_period_hours = ENV['CACHED_PERIOD'].to_i.hours
+    last_fetched_at.nil? || last_fetched_at < (Time.now - cached_period_hours)
   end
 
 
